@@ -1,0 +1,49 @@
+{
+  "call_id": "office_hours_good",
+  "scenario": {
+    "description": "Patient asks when the office is open.",
+    "goal": "Accurate office hours provided.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 1.5,
+      "text": "What are your hours?"
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 2.0,
+      "duration": 3.0,
+      "text": "We're open Monday through Friday, 8am to 5pm. We're closed on weekends."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 5.5,
+      "duration": 1.0,
+      "text": "And lunch break?"
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 3,
+      "timestamp": 7.0,
+      "duration": 2.0,
+      "text": "We're open continuously during business hours."
+    }
+  ]
+}

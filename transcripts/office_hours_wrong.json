@@ -1,0 +1,42 @@
+{
+  "call_id": "office_hours_wrong",
+  "scenario": {
+    "description": "Agent states incorrect weekend hours.",
+    "goal": "Correct hours communicated including weekend closure.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 1.5,
+      "text": "Are you open Saturday mornings?"
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 2.0,
+      "duration": 2.0,
+      "text": "Yes, we're open Saturdays 9am to 1pm."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 4.5,
+      "duration": 1.5,
+      "text": "Oh great, I'll come in then."
+    }
+  ]
+}

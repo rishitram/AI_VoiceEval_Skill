@@ -1,0 +1,4308 @@
+{
+  "unmet_goal_and_policy_bug": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of having a confirmed, valid appointment was not met because the agent failed to verify the practice's Sunday hours and instead booked an uncertain appointment.",
+      "evidence_turn_index": 4
+    },
+    "efficiency": {
+      "redundant_repeat_count": 3,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-ask the same question due to agent's unclear response"
+        },
+        {
+          "turn_index": 4,
+          "reason": "patient had to re-state the same information due to agent's failure to verify"
+        },
+        {
+          "turn_index": 6,
+          "reason": "patient had to re-explain the same request due to agent's dismissal of their concern"
+        }
+      ],
+      "score": 2
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 2,
+      "score": 1,
+      "reasoning": "The agent failed to confirm the patient's appointment time and verify business hours, leading to unnecessary turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I've scheduled you for Sunday at 10am",
+          "why_wrong": "The practice is closed on Sundays"
+        },
+        {
+          "turn_index": 3,
+          "claim_made": "I'm not able to verify that right now, but your appointment is booked",
+          "why_wrong": "The agent should have stated the office hours and confirmed the appointment for a different day"
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT confirmed appointment without verifying if the clinic is open on Sundays",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "AGENT provided unclear response about clinic hours, but still referred to the appointment as booked",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was generally neutral and professional, but showed a lack of empathy and understanding when dealing with the patient's frustration.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 5,
+      "avg_gap_seconds": 2.5,
+      "max_gap_seconds": 6.5,
+      "slow_turns": [
+        {
+          "turn_index": 3,
+          "gap_seconds": 6.5
+        }
+      ],
+      "very_slow_turns": [
+        {
+          "turn_index": 3,
+          "gap_seconds": 6.5
+        }
+      ],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 20.5,
+      "reasoning": "avg response gap 2.5s across 3 agent turns; 1 turn(s) over 6.0s (severe latency)"
+    },
+    "_overall_score": 3.71
+  },
+  "refill_wrong_pharmacy": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's request for a refill at CVS on Elm was not fulfilled, and the agent continued to refer to Walgreens.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to register correct location"
+        },
+        {
+          "turn_index": 3,
+          "reason": "agent ignored patient's correction and repeated incorrect information"
+        }
+      ],
+      "score": 4
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 1,
+      "reasoning": "The agent failed to correct their mistake and instead repeated the error, requiring an additional turn for correction."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "sent to Walgreens on Main St",
+          "why_wrong": "Contradicts patient's request for CVS on Elm"
+        },
+        {
+          "turn_index": 3,
+          "claim_made": "Your refill is at Walgreens",
+          "why_wrong": "Contradicts patient's repeated requests for CVS on Elm and ignores own previous mistake"
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent sent refill to wrong location despite patient's clear instruction",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent repeated previous mistake, still sent refill to Walgreens instead of CVS",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's tone was somewhat apologetic but ultimately dismissive and unresponsive to the patient's clear instructions, failing to acknowledge their frustration.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 9.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 4.14
+  },
+  "schedule_same_day_bug": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's urgent need for a doctor was not resolved, and the agent failed to acknowledge or correct their initial mistake.",
+      "evidence_turn_index": 4
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "agent failed to acknowledge and address the contradiction between their previous statement and the patient's new information"
+        },
+        {
+          "turn_index": 5,
+          "reason": "agent failed to confirm or clarify the patient's request after being presented with conflicting information"
+        }
+      ],
+      "score": 4
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took unnecessary turns confirming the patient's schedule and website information, instead of simply clarifying the office hours."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I can book you for Saturday at 4pm today.",
+          "why_wrong": "Contradicts known fact: office_hours states the practice is closed on weekends."
+        },
+        {
+          "turn_index": 3,
+          "claim_made": "Yes, we have Saturday availability.",
+          "why_wrong": "Contradicts known fact: office_hours states the practice is closed on weekends."
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent booked appointment for Saturday at 4pm without checking if the patient is aware it's a weekend",
+          "recovered": false
+        },
+        {
+          "turn_index": 5,
+          "description": "Agent failed to address patient's concern about website showing closed weekends, instead confirmed existing schedule",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's tone was somewhat neutral and matter-of-fact, but lacked warmth and empathy in response to the patient's frustration and confusion.",
+      "notable_moment_turn_index": 5
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 14.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 4.57
+  },
+  "transfer_loop": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's request for a transfer to billing was not resolved, and the agent continued to discuss scheduling appointments.",
+      "evidence_turn_index": 4
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "agent ignored previous request"
+        },
+        {
+          "turn_index": 5,
+          "reason": "agent failed to register information"
+        }
+      ],
+      "score": 6
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 2,
+      "score": 1,
+      "reasoning": "The agent failed to quickly identify the patient's goal and instead asked unnecessary questions, leading to a significantly bloated conversation."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Would you like to schedule an appointment?",
+          "why_wrong": "The practice is closed on weekends and the patient has already indicated they do not want to schedule an appointment."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asked for date of birth instead of addressing billing request",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent offered to schedule an appointment despite patient's clear rejection",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's tone was somewhat friendly, but they failed to acknowledge the patient's frustration and continued to ask unrelated questions.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 4.71
+  },
+  "reschedule_conflict": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's request to reschedule their Thursday appointment to Friday was not fully resolved, as both appointments remained confirmed.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "clarify previous request"
+        },
+        {
+          "turn_index": 5,
+          "reason": "confirm cancellation of original appointment"
+        }
+      ],
+      "score": 6
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took unnecessary turns to clarify the patient's information and confirm the appointments, instead of directly addressing the rescheduling request."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "You're booked Friday at 9am. Your Thursday slot is still held as well.",
+          "why_wrong": "The practice is closed on weekends, so it's not possible to have a Thursday appointment."
+        },
+        {
+          "turn_index": 5,
+          "claim_made": "Both appointments are confirmed.",
+          "why_wrong": "The patient only wanted the Friday appointment, and the agent should have cancelled or clarified the Thursday appointment instead of confirming both."
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent confirmed both appointments instead of cancelling the Thursday one",
+          "recovered": false
+        },
+        {
+          "turn_index": 5,
+          "description": "Agent failed to acknowledge patient's request and still confirmed both appointments",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was neutral and informative, but lacked warmth and empathy in responding to the patient's frustration.",
+      "notable_moment_turn_index": 5
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 14.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 4.86
+  },
+  "cancel_not_found": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of canceling their appointment was not met because the agent was unable to locate the appointment and the patient chose to call back instead.",
+      "evidence_turn_index": 6
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "same question"
+        },
+        {
+          "turn_index": 6,
+          "reason": "same request"
+        }
+      ],
+      "score": 5
+    },
+    "turn_economy": {
+      "actual_agent_turns": 6,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took unnecessary turns asking for the patient's name and date of birth, and also offered to schedule an appointment when it was clear the patient wanted to cancel one."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "I'm not finding an appointment under that name.",
+          "why_wrong": "The agent should have checked for variations in the patient's name, such as 'Thomas Wilson' instead of just 'Tom Wilson'."
+        },
+        {
+          "turn_index": 5,
+          "claim_made": "Still nothing. Would you like to schedule instead?",
+          "why_wrong": "The practice is closed on weekends, so it would be impossible for the patient to have an appointment tomorrow."
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent failed to find the appointment under the provided name, but didn't ask for clarification on possible variations (e.g., 'Tom' vs. 'Thomas').",
+          "recovered": false
+        },
+        {
+          "turn_index": 5,
+          "description": "Agent offered scheduling instead of investigating further, potentially dismissing the patient's claim of having an existing appointment.",
+          "recovered": true
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent remained patient and helpful throughout, but showed a slight lack of empathy when suggesting rescheduling instead of investigating further.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 16.5,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 5.29
+  },
+  "voicemail_wrong_flow": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient specifically asked to leave a message, but the agent continued to offer an appointment instead.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-state their original request due to agent's deviation from the topic"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent unnecessarily offered an appointment booking option and mentioned a specific opening, deviating from the patient's clear request for leaving a message."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Would you like to book an appointment instead?",
+          "why_wrong": "The practice is closed on weekends, and the patient specifically asked for a message, not an appointment."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent offered an appointment booking instead of a message, despite patient's clear request for a message.",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's tone was somewhat friendly, but they quickly shifted to trying to book an appointment instead of leaving a message as requested by the patient.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 5.57
+  },
+  "wrong_department": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent failed to provide a referral to an outside cardiologist, instead offering an appointment time.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "clarification of request type"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have provided the referral information directly in the second turn, eliminating the need for a third turn."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I can book you Tuesday at 10am",
+          "why_wrong": "The practice is closed on weekends, and the patient specifically asked for a referral to an outside cardiologist."
+        },
+        {
+          "turn_index": 3,
+          "claim_made": "Tuesday at 10am is still available",
+          "why_wrong": "As mentioned in turn 2, the patient was asking for a referral to an outside cardiologist, not booking an appointment with the practice."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent booked an appointment instead of providing a referral",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent repeated the same irrelevant response after patient clarified need for outside cardiologist referral",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's tone was somewhat neutral and focused on scheduling, but failed to acknowledge the patient's request for a referral or show empathy towards their needs.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 5.57
+  },
+  "wrong_patient_record": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of verifying their correct medication and date of birth was not met, as the agent continued to refill insulin instead of metformin.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient corrected agent's mistake about birth year"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have corrected the DOB in a single turn, but instead took two turns to acknowledge and correct the mistake."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Refilling insulin",
+          "why_wrong": "Patient requested metformin refill"
+        },
+        {
+          "turn_index": 3,
+          "claim_made": "Refill submitted for insulin",
+          "why_wrong": "Patient corrected birth year to 1980, but agent still processed insulin refill"
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided incorrect birth year for the patient's medication",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent failed to correct their previous mistake and continued with refilling insulin instead of metformin",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was generally neutral and efficient, but lacked warmth and empathy in response to the patient's correction.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 10.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 5.57
+  },
+  "after_hours_message": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent only provided information about office hours and on-call nurse, but did not explain any after-hours options that would allow the patient to address their issue immediately.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-state their intention due to agent's failure to acknowledge or address the original request"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the after-hours options and hours of operation in a single turn, but chose to break it up into two turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Our office is currently closed. Hours are Mon-Fri 8am-5pm.",
+          "why_wrong": "The statement 'Our office is currently closed' contradicts the known fact that the practice is open on weekdays."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT provided hours of operation instead of offering a solution to the patient's urgent issue",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's response was brief and informative, but lacked warmth and empathy, particularly in not acknowledging the patient's initial need to talk to someone.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.5,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 5.71
+  },
+  "agent_forgets_dob": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's request to reschedule their appointment was not met, as the agent moved it to a different day without confirming the change with the patient.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "date of birth"
+        },
+        {
+          "turn_index": 5,
+          "reason": "rescheduled appointment date"
+        }
+      ],
+      "score": 6
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent unnecessarily asked for the patient's date of birth again and then rescheduled the appointment without confirming the change with the patient."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "Moved to Wednesday 9am",
+          "why_wrong": "The practice is closed on weekends, so it cannot be open on the following Monday's day (Wednesday)."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks for date of birth again, despite patient already providing it",
+          "recovered": false
+        },
+        {
+          "turn_index": 5,
+          "description": "Agent moves appointment to a different day without confirming with the patient",
+          "recovered": true
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was generally neutral and professional, but lacked warmth and empathy in response to the patient's frustration.",
+      "notable_moment_turn_index": 4
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 14.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 5.71
+  },
+  "cold_robotic_tone": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent failed to acknowledge or address the patient's emotional concern about their symptoms.",
+      "evidence_turn_index": 0
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-ask the same question because the agent did not address it directly"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have addressed the patient's concern about ER and scheduled an appointment in a single turn, but instead took two turns to schedule an appointment without addressing the patient's immediate worry."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I can schedule you for next week.",
+          "why_wrong": "The practice is closed on weekends, but the agent does not specify which day they are scheduling the appointment. However, since the patient did not mention a specific day, it's possible that the agent meant to say 'next available weekday'."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent ignores patient's concern about chest tightness and asks to schedule an appointment",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent fails to address patient's question about going to the ER, instead schedules a non-urgent appointment",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's responses were brief and lacked empathy, failing to acknowledge the patient's concern about chest tightness.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 5.71
+  },
+  "location_wrong_address": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal was not met because the agent consistently provided an incorrect address, despite the patient correcting them.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to acknowledge or correct initial address discrepancy"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have simply confirmed the correct address, '500 Pine Avenue', without repeating it."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "500 Pine Avenue, downtown.",
+          "why_wrong": "Contradicts known fact: address is actually 1200 Oak Street, Suite 200, Springfield."
+        },
+        {
+          "turn_index": 3,
+          "claim_made": "Yes, 500 Pine Avenue.",
+          "why_wrong": "Repeats incorrect claim from turn 1"
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 2,
+          "description": "Agent gave an irrelevant response to the patient's question about the address discrepancy.",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent repeated their previous incorrect statement instead of acknowledging and correcting it.",
+          "recovered": false
+        }
+      ],
+      "score": 2
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally neutral and matter-of-fact, but lacks warmth and empathy in response to the patient's confusion.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 7.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 5.86
+  },
+  "excessive_confirmation_loops": {
+    "goal_completion": {
+      "goal_met": "partially_met",
+      "score": 6,
+      "reasoning": "The patient's appointment was confirmed, but the agent still asked for redundant information and did not explicitly acknowledge that it had all necessary details from the start.",
+      "evidence_turn_index": 9
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 6,
+          "reason": "Patient had to re-explain the purpose of the appointment due to agent's failure to register information"
+        },
+        {
+          "turn_index": 8,
+          "reason": "Patient had to re-state their name due to agent's failure to recall it after being given at the start"
+        }
+      ],
+      "score": 4
+    },
+    "turn_economy": {
+      "actual_agent_turns": 9,
+      "estimated_minimum_turns": 4,
+      "score": 2,
+      "reasoning": "The agent repeated the patient's information multiple times, unnecessarily prolonging the conversation."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 9,
+          "claim_made": "Confirming Kevin Brown, Friday 10am physical?",
+          "why_wrong": "The practice is closed on weekends, so it's not possible to book an appointment for Friday at 10am."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for confirmation of the day instead of booking a time",
+          "recovered": false
+        },
+        {
+          "turn_index": 5,
+          "description": "Agent asks if it's a physical, even though patient has already confirmed this",
+          "recovered": true
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was generally neutral and professional, but occasionally came across as slightly dismissive and lacking empathy when confirming details.",
+      "notable_moment_turn_index": 8
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 15.0,
+      "reasoning": "avg response gap 0.5s across 5 agent turns"
+    },
+    "_overall_score": 6.0
+  },
+  "latency_severe": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal of scheduling a checkup was met, but the conversation could have been more efficient and less delayed.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "Patient had to re-state their name and DOB because the agent didn't acknowledge or use it immediately"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the patient's name and DOB, and another turn to simply acknowledge the booking."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Next opening is Monday 9am",
+          "why_wrong": "The practice is closed on weekends."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent provided a specific date and time without confirming patient's availability",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a more personalized touch and empathetic response to the patient's request.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 0,
+      "avg_gap_seconds": 6.5,
+      "max_gap_seconds": 7.0,
+      "slow_turns": [
+        {
+          "turn_index": 1,
+          "gap_seconds": 6.5
+        },
+        {
+          "turn_index": 3,
+          "gap_seconds": 6.0
+        },
+        {
+          "turn_index": 5,
+          "gap_seconds": 7.0
+        }
+      ],
+      "very_slow_turns": [
+        {
+          "turn_index": 1,
+          "gap_seconds": 6.5
+        },
+        {
+          "turn_index": 5,
+          "gap_seconds": 7.0
+        }
+      ],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 29.0,
+      "reasoning": "avg response gap 6.5s across 3 agent turns; 2 turn(s) over 6.0s (severe latency)"
+    },
+    "_overall_score": 6.0
+  },
+  "hallucinated_doctor": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's request for only seeing real providers was not addressed, and the agent continued to offer a booking with Dr. Anderson without clarifying their status.",
+      "evidence_turn_index": -1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-ask the same question because the agent did not provide a clear answer in turn 1"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have confirmed the availability of Dr. Anderson in a single turn, but instead repeated the information and provided unnecessary confirmation."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Dr. Anderson has Monday at 3pm",
+          "why_wrong": "The practice is closed on weekends (Monday), so Dr. Anderson cannot have an appointment on a day the office is not open."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided a specific time slot without confirming the patient's availability or interest",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent repeated the same information as in turn 1, without addressing the patient's concern about not seeing Dr. Anderson on their website",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was neutral and informative, but lacked warmth and empathy in response to the patient's confusion.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 6.14
+  },
+  "hipaa_verification_fail": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of having their identity verified before disclosing PHI was not met because the agent immediately disclosed sensitive information without verifying the patient's identity.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to acknowledge patient's identity"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have verified the patient's identity in the first turn before disclosing PHI, but instead took two turns to disclose information without verifying identity."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "You have a diagnosis of hypertension and take lisinopril.",
+          "why_wrong": "No information was given by the patient to confirm this claim."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided irrelevant information without confirming patient's identity",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's response was brief and informative, but lacked a warm and empathetic tone, failing to acknowledge the patient's frustration.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 6.5,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 6.14
+  },
+  "repetition_bug": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal of receiving a refill confirmation was met, but the agent could have been more direct and efficient in resolving the request.",
+      "evidence_turn_index": 7
+    },
+    "efficiency": {
+      "redundant_repeat_count": 3,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "Patient had to re-state the same request due to agent's failure to register information"
+        },
+        {
+          "turn_index": 6,
+          "reason": "Patient had to re-state the same medication name due to agent's lack of understanding or attention"
+        }
+      ],
+      "score": 4
+    },
+    "turn_economy": {
+      "actual_agent_turns": 7,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took many unnecessary turns asking redundant questions and clarifying information already provided by the patient."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I can help with appointments. Would you like to schedule a visit?",
+          "why_wrong": "The practice is closed on weekends and the patient specifically stated they don't need an appointment."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT responded with an unrelated topic (appointments) instead of addressing the patient's request for a prescription refill",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "AGENT asked again what the patient is calling about, despite the patient already stating their reason for the call",
+          "recovered": true
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's tone was generally neutral and helpful, but lacked warmth and empathy in response to the patient's frustration.",
+      "notable_moment_turn_index": 4
+    },
+    "pacing_timing": {
+      "score": 9,
+      "avg_gap_seconds": 1.5,
+      "max_gap_seconds": 4.0,
+      "slow_turns": [
+        {
+          "turn_index": 7,
+          "gap_seconds": 4.0
+        }
+      ],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 29.5,
+      "reasoning": "avg response gap 1.5s across 5 agent turns; 1 turn(s) over 3.0s (noticeable delay)"
+    },
+    "_overall_score": 6.29
+  },
+  "billing_question_good": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of being directed to billing with clear next steps was not met, as they were only told that a callback request would be sent.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "Patient had to re-state their request for the billing department to call back"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent unnecessarily introduced an extra turn to transfer the patient, when a direct callback request could have been made immediately."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Billing handles statements.",
+          "why_wrong": "This statement is internally inconsistent because the patient's question about a bill suggests that billing has already been involved, and the agent should be able to address the issue directly."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT gave an irrelevant response by mentioning transfer options instead of addressing the patient's question about the bill",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 6,
+      "reasoning": "The agent's response was neutral and helpful, but lacked warmth and empathy in addressing the patient's concern.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 6.43
+  },
+  "overlap_barge_in_bug": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of clean turn-taking without overlapping speech was not met because the agent interrupted the patient in multiple turns.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to restate their intention to cancel"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have clarified the cancellation request in a single turn, but instead took an extra turn to ask for confirmation of which appointment to cancel."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Your appointment is confirmed for Friday.",
+          "why_wrong": "The practice is closed on weekends."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT responded with confirmation instead of cancellation",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "AGENT asked for appointment details after patient requested cancellation",
+          "recovered": true
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally respectful and empathetic, but shows a slight delay in responding to the patient's frustration.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 9,
+      "avg_gap_seconds": -0.1,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [
+        {
+          "turn_index": 1,
+          "gap_seconds": -0.7
+        }
+      ],
+      "total_call_duration_seconds": 7.0,
+      "reasoning": "avg response gap -0.1s across 2 agent turns; 1 unexpected overlap(s) (agent talking over the patient outside a barge-in test)"
+    },
+    "_overall_score": 6.57
+  },
+  "partial_goal_refill_only": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent submitted the statin refill but failed to book the annual physical, leaving the patient's request partially unfulfilled.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to acknowledge or respond to the initial request"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have completed both requests in a single turn, but instead took an extra turn to ask if there was anything else to help with."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Anything else I can help with?",
+          "why_wrong": "The agent failed to address the patient's request for an annual physical appointment, which was made earlier in the call."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent responded to statin refill request without acknowledging the patient's mention of an annual physical.",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but a more empathetic response to the patient's request for an annual physical would have been appreciated.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 6.57
+  },
+  "refill_dosage_question": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent did not confirm the correct dosage with the provider chart before submitting the refill.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 3,
+          "reason": "patient had to re-state the medication name because agent didn't understand it was lisinopril"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the medication name, which could have been done in a single turn after verifying the patient's identity."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "Refill submitted, ready tomorrow at your pharmacy",
+          "why_wrong": "The practice is closed on weekends and the agent should not have promised a refill for the next day without verifying the patient's availability or scheduling an appointment."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and DOB without confirming the medication",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a bit of empathy in their brief responses.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 13.5,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 6.57
+  },
+  "duplicate_booking_prevent": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's existing booking was confirmed, but there was no explicit confirmation that the duplicate request was cancelled.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "Patient had to restate their preference for keeping the original appointment after agent brought it up again"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 4,
+      "estimated_minimum_turns": 2,
+      "score": 1,
+      "reasoning": "The agent took two unnecessary turns to ask for the patient's name and DOB, which could have been done in a single turn after confirming the booking."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "You already have Tuesday at 2pm on the books.",
+          "why_wrong": "The practice is closed on weekends, so it's not possible to book an appointment for next Tuesday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks if the patient wants to keep or change an appointment that was not previously discussed.",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly falls short in empathy as they don't acknowledge the patient's initial request without checking availability first.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 6.71
+  },
+  "payment_plan": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's request for a billing/payment plan was not resolved, as they were only transferred to the billing department without any further action.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-ask the same question because the agent did not provide a clear answer or solution"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have provided the transfer or callback option directly without needing to explain billing handles payment plans."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Billing handles payment plans.",
+          "why_wrong": "The practice's office hours are Mon-Fri 8am-5pm, closed weekends. It is unlikely that billing would be available outside of regular business hours."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT gave an irrelevant response by mentioning scheduling a callback instead of directly addressing the patient's request for a payment plan",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally neutral and helpful, but lacks warmth and empathy in responding to the patient's request.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 9.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 6.71
+  },
+  "angry_patient_tone": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's appointment was successfully rescheduled, but the agent didn't fully acknowledge or address the initial frustration.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 3,
+          "reason": "Patient had to re-state their name and date of birth because the agent didn't ask for it in a way that implied they were expecting a response, or because the agent forgot/ignored the information provided earlier."
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 6,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took unnecessary turns apologizing and reiterating the resolution, while a competent human receptionist could have accomplished this in just three turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "Moved to Friday at 3pm",
+          "why_wrong": "The practice is closed on weekends, so it cannot be open on Friday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks for name and date of birth without confirming the reschedule request",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent acknowledged and apologized for the patient's frustration, showing empathy while still efficiently addressing their request.",
+      "notable_moment_turn_index": 1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 16.5,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 6.86
+  },
+  "misheard_medication": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent incorrectly confirmed refilling metformin instead of metoprolol, and did not correct this mistake before ending the call.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to understand or register the patient's initial request"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have clarified the medication in a single turn, but instead took two turns to correct their mistake."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Refilling metformin",
+          "why_wrong": "Patient had already corrected the agent to 'metoprolol'"
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT responded with metformin refill instead of metoprolol",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "AGENT did not explicitly acknowledge the patient's correction, but continued with submitting the correct refill",
+          "recovered": true
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally respectful and empathetic, but showed a slight lack of attention to detail in turns [1] and [3], where they incorrectly stated the medication being refilled.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 7.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 6.86
+  },
+  "insurance_authorization": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The agent provided a vague and unhelpful response that did not address the patient's question about prior auth for an MRI.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the necessary information in a single turn, but chose to escalate instead."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I'll have our auth team verify and call you within 2 days.",
+          "why_wrong": "The practice is closed on weekends, but the patient's request for prior auth does not specify a weekend date. However, this claim could be considered accurate if it refers to weekdays only."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided an irrelevant response regarding plan verification instead of directly addressing the patient's question about prior auth for MRI",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear expression of empathy for the patient's question.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 7.3,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 7.0
+  },
+  "longer_office_hours_conflict": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal was met, but not clearly and efficiently as the agent initially provided incorrect information before correcting it.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-ask because agent initially provided incorrect information"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to clarify the office hours and offer an alternative, which could have been done in a single turn."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "We are open on Saturdays and can fit you in first thing in the morning.",
+          "why_wrong": "Contradicts known fact: office_hours: Mon-Fri 8am-5pm, closed weekends"
+        }
+      ],
+      "score": 7
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT provided incorrect information about weekend hours",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "AGENT failed to acknowledge patient's skepticism and instead offered an alternative day without addressing the initial concern",
+          "recovered": true
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but showed a slight lack of empathy in response to the patient's initial confusion.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.87,
+      "max_gap_seconds": 1.1,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 19.4,
+      "reasoning": "avg response gap 0.87s across 3 agent turns"
+    },
+    "_overall_score": 7.0
+  },
+  "senior_confusion": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's appointment time was confirmed, and a note was made to send confirmation to both the patient and her daughter.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "patient had to re-ask the same request (texting daughter) because it was not acknowledged or addressed by the agent"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the daughter's phone number and add a note, which is unnecessary for confirming the appointment details."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Your appointment is this Thursday at 2pm with Dr. Patel",
+          "why_wrong": "The practice is closed on weekends, and the patient's appointment would be on a weekend."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 2,
+          "description": "Agent asks for date of birth, but the patient has already provided it (March 5th birthday, 1948).",
+          "recovered": true
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent provides appointment details without confirming the correct date of birth or name.",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly robotic in its response to the patient's request for a reminder text.",
+      "notable_moment_turn_index": 5
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 17.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 7.0
+  },
+  "insurance_accepted_good": {
+    "goal_completion": {
+      "goal_met": "partially_met",
+      "score": 6,
+      "reasoning": "The patient's goal of receiving accurate information about insurance acceptance was partially met, as the agent provided a correct but incomplete answer.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to provide clear answer"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided a direct answer to the patient's question, but instead chose to list other accepted insurances and then mentioned UnitedHealthcare separately."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "UnitedHealthcare isn't in network",
+          "why_wrong": "The practice accepts UnitedHealthcare as an insurance provider (known fact: accepted_insurance = ['Aetna', 'BCBS', 'Cigna'] is not exhaustive)"
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent responded with a list of accepted insurance providers instead of addressing the specific question about UnitedHealthcare PPO.",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally neutral and informative, but lacks warmth and empathy in response to the patient's inquiry.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.0,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 7.14
+  },
+  "longer_insurance_confusion": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's insurance acceptance and appointment details were confirmed, but there was a minor mistake in confirming Cigna as an accepted plan.",
+      "evidence_turn_index": 7
+    },
+    "efficiency": {
+      "redundant_repeat_count": 2,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "clarification of insurance type"
+        },
+        {
+          "turn_index": 4,
+          "reason": "confirmation of office hours"
+        }
+      ],
+      "score": 6
+    },
+    "turn_economy": {
+      "actual_agent_turns": 7,
+      "estimated_minimum_turns": 4,
+      "score": 2,
+      "reasoning": "The agent took too many turns to confirm insurance and schedule an appointment, with unnecessary clarification on the patient's request."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "We are open on Thursday afternoon",
+          "why_wrong": "The practice is closed on weekends"
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT responded to PATIENT's mention of Cigna insurance without confirming it",
+          "recovered": false
+        },
+        {
+          "turn_index": 3,
+          "description": "AGENT didn't acknowledge the patient's request for Dr. Lee, but instead only confirmed availability",
+          "recovered": true
+        }
+      ],
+      "score": 7
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but occasionally came across as slightly robotic in their responses.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.75,
+      "max_gap_seconds": 1.0,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 27.3,
+      "reasoning": "avg response gap 0.75s across 4 agent turns"
+    },
+    "_overall_score": 7.14
+  },
+  "office_hours_good": {
+    "goal_completion": {
+      "goal_met": "partially_met",
+      "score": 6,
+      "reasoning": "The agent provided office hours, but failed to explicitly mention a lunch break or clarify what 'continuously during business hours' means.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to ask for lunch break hours because agent did not provide this information initially"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have provided the full schedule in a single turn, but did provide some useful clarification on lunch breaks."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "We're open continuously during business hours",
+          "why_wrong": "This statement contradicts the known fact that the practice is closed on weekends, which are part of its 'business hours'."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent gave an irrelevant response to the patient's question about hours",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's responses are clear and concise, but lack a warm and empathetic tone, making it seem more like a scripted interaction.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 9.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.14
+  },
+  "office_hours_wrong": {
+    "goal_completion": {
+      "goal_met": "not_met",
+      "score": 2,
+      "reasoning": "The patient's goal of knowing the correct hours, including weekend closure, was not fully met because the agent only mentioned Saturday morning hours and did not mention the afternoon closure.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the hours and confirmed the patient's plan in a single turn, but instead took two turns to convey this simple information."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Yes, we're open Saturdays 9am to 1pm.",
+          "why_wrong": "Contradicts known fact: office_hours are Mon-Fri 8am-5pm, closed weekends."
+        }
+      ],
+      "score": 6
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided a specific time frame without clarifying if it's relevant to the patient's needs",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a hint of empathy in their response.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 6.0,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 7.14
+  },
+  "referral_status": {
+    "goal_completion": {
+      "goal_met": "partially_met",
+      "score": 6,
+      "reasoning": "The agent provided some information about the referral status, but did not confirm whether it was successfully sent or provide a clear escalation path.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have provided the referral status directly after verifying the patient's information, but instead asked for confirmation of the referral being sent."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Referral was sent Monday. Dermatology should call within 5 business days.",
+          "why_wrong": "The practice is closed on weekends, so the referral could not have been sent on a Monday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and DOB without confirming referral status",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly falls short in providing a clear answer to the patient's question.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 10.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.29
+  },
+  "lab_results_question": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's request for a nurse callback was acknowledged and a call is expected by end of day, which meets their goal.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-state their request due to agent's failure to understand or acknowledge the initial question"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent unnecessarily explained the portal reset option, but still efficiently directed the patient to a nurse callback."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "expect a call by end of day",
+          "why_wrong": "The practice is closed on weekends and the patient's request was sent at 8:5s, which is already past the end of the workday (Mon-Fri 8am-5pm)"
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT gave an irrelevant response by mentioning the patient portal instead of directly addressing the patient's question about blood test results.",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly lacking in empathy as they don't acknowledge the patient's frustration with not having access to their results.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 10.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.43
+  },
+  "refill_early_request": {
+    "goal_completion": {
+      "goal_met": "partially_met",
+      "score": 6,
+      "reasoning": "The patient's request for an exception was acknowledged and a message was sent to their provider, but no immediate resolution or alternative solution was offered.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "patient had to re-ask about the possibility of an exception"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have explained the policy and offered to send a message to the provider in a single turn, but instead took an extra turn to reiterate the next eligible date."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Controlled substances can't be refilled early.",
+          "why_wrong": "This statement contradicts the known fact that the practice allows exceptions to be reviewed by a doctor."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT gave an irrelevant response to the patient's request for a refill two weeks early",
+          "recovered": false
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally respectful and empathetic, but showed a slight lack of warmth in enforcing policy without offering alternative solutions.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 14.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.43
+  },
+  "appointment_reminder_opt_out": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's request to opt out of text reminders was fulfilled, but it wasn't explicitly stated that email reminders would also be turned off.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 4,
+          "reason": "Patient had to re-state their preference for text reminders after the agent failed to confirm they were opted out"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 4,
+      "estimated_minimum_turns": 2,
+      "score": 1,
+      "reasoning": "The agent unnecessarily asked for the patient's name and DOB to locate their chart, when this information could have been obtained from the system or not requested at all."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Email reminders will still send unless you want those off too.",
+          "why_wrong": "The practice's office hours are Mon-Fri 8am-5pm, closed weekends. It is unlikely that email reminders would be sent on a weekend."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and DOB to locate chart, but patient has already provided this information in the previous turn.",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally respectful and empathetic, but slightly falls short in acknowledging the patient's frustration with appointment reminders.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 13.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.57
+  },
+  "barge_in_test": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's goal of scheduling an appointment was successfully completed, with a specific time and date confirmed.",
+      "evidence_turn_index": 7
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 7,
+      "estimated_minimum_turns": 4,
+      "score": 2,
+      "reasoning": "The agent took too many turns to gather basic information, such as name and date of birth"
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "Tuesday at 10am is open",
+          "why_wrong": "The practice is closed on weekends."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent responded before patient finished speaking",
+          "recovered": true
+        },
+        {
+          "turn_index": 3,
+          "description": "Agent asked for name and date of birth, but patient had already provided them in turn 2",
+          "recovered": false
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear empathetic response to the patient's initial request.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.33,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 14.0,
+      "reasoning": "avg response gap 0.33s across 4 agent turns"
+    },
+    "_overall_score": 7.57
+  },
+  "good_cancel_and_rebook": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's request to cancel Friday and book a new appointment for Monday was successfully confirmed by the agent.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to collect the patient's name and DOB, which could have been done in a single turn after confirming the appointment change."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Monday 11am is open",
+          "why_wrong": "The practice is closed on weekends, and Monday would be a weekend day."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and DOB without acknowledging the patient's original request to cancel Friday and book Monday instead",
+          "recovered": false
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear empathetic response to the patient's request.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 13.5,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 7.57
+  },
+  "running_late": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal of having their appointment held was met, but the agent could have been more explicit about what would happen at exactly 2:10.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "Patient had to re-state their estimated arrival time after agent's initial response"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have communicated the late arrival policy and confirmed the new arrival time in a single turn, but instead took an extra turn to simply 'note' the updated arrival time."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Arriving after 2pm may require rescheduling",
+          "why_wrong": "The practice is open until 5pm on weekdays, so arriving at or before 5pm should not require rescheduling."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT provided an irrelevant response regarding holding until 2:15 without acknowledging the patient's concern about being late",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly lacking in empathy as they immediately suggest rescheduling without acknowledging the patient's frustration.",
+      "notable_moment_turn_index": 1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.57
+  },
+  "schedule_telehealth": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's goal of confirming a telehealth appointment was achieved, with specific details provided for the time and method of joining.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to provide unnecessary details and confirm the appointment, rather than simply scheduling it."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "I can schedule a telehealth with Dr. Lee Thursday at 3pm.",
+          "why_wrong": "The practice is closed on weekends, and the call transcript does not indicate that it's a weekday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "AGENT schedules a telehealth appointment without confirming the patient's availability or preferences",
+          "recovered": false
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear expression of empathy for the patient's health concern.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.57,
+      "max_gap_seconds": 0.7,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 15.0,
+      "reasoning": "avg response gap 0.57s across 3 agent turns"
+    },
+    "_overall_score": 7.57
+  },
+  "callback_request_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The agent successfully logged a callback request with a specific timeframe, but did not provide any additional details or confirmations that might have made the goal more clear.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have combined the request for callback with the nurse's timeframe, reducing the number of turns needed."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Nurse callback requested today by 4pm",
+          "why_wrong": "The practice is closed on weekends, and the call was made on an unknown day (but likely a weekend), so it's impossible to fulfill this request."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent requests callback time without clarifying the nature of the rash or providing any further assistance.",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is professional and empathetic, but slightly lacking in warmth and emotional resonance.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 9.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "cancel_appointment_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's appointment was successfully cancelled, but there is no confirmation that it will not be rescheduled in the future.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 3,
+          "reason": "Patient had to re-state the appointment date and time because the agent did not confirm it after receiving the patient's name and DOB."
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 7,
+      "estimated_minimum_turns": 4,
+      "score": 2,
+      "reasoning": "The agent took too many turns to confirm the appointment cancellation and reschedule, with unnecessary questions about rebooking."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "I see your Monday 2pm with Dr. Patel.",
+          "why_wrong": "The practice is closed on weekends."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks if they should cancel the appointment without confirming it's the correct one",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear expression of empathy or understanding for the patient's needs.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 17.5,
+      "reasoning": "avg response gap 0.5s across 4 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "language_barrier": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal of getting an appointment with a Spanish interpreter was met, but the conversation could have been more efficient and direct.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "request for language assistance"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have connected the interpreter and scheduled the visit in a single turn, but instead took an extra turn to explicitly state that they are connecting the interpreter."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I can connect a Spanish interpreter.",
+          "why_wrong": "There is no indication in the transcript that the patient requested an interpreter, and it's not clear if this service is available outside of regular office hours."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent offers to connect a Spanish interpreter without confirming the patient's request for an appointment.",
+          "recovered": false
+        }
+      ],
+      "score": 6
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly robotic in its phrasing, particularly when offering to connect a Spanish interpreter.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "medication_interaction": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal was met because the agent clearly communicated that a nurse would review their medications, which directly addresses the patient's question.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have simply stated the nurse would call back without acknowledging the patient's question, achieving the goal in one turn."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I'll have a nurse call you today to review your medications",
+          "why_wrong": "The practice is closed on weekends (as stated in known facts), so it's unlikely the patient will receive a call from a nurse 'today'."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT gave an irrelevant response by saying 'I can't give medical advice', which doesn't address the patient's question",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's response was polite and professional, but lacked warmth and empathy in addressing the patient's concern.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 7.8,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "schedule_pediatric": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's goal of confirming a pediatric appointment for Emma Lopez was fully met, with the agent providing a specific date and time for the visit.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 5,
+          "reason": "Patient had to confirm appointment details after they were already discussed"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the appointment and provide additional instructions, but could have been more concise in their response."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Tuesday at 10am with Dr. Rivera in pediatrics",
+          "why_wrong": "The practice is closed on weekends and the appointment was scheduled for Tuesday, which is a weekend day according to the known ground-truth facts."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 2,
+          "description": "Agent asks for date of birth in the format 'March 8th, 2024' instead of a standard date format (e.g., MM/DD/YYYY)",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a few empathetic moments to elevate it to a perfect score.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 19.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "specialist_referral_good": {
+    "goal_completion": {
+      "goal_met": "partially_met",
+      "score": 6,
+      "reasoning": "The patient's goal of initiating a referral process with a timeline was partially met, as the agent submitted the referral but only provided a vague timeframe of 'within a week'.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "provider name"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have combined the two questions into a single turn, reducing unnecessary repetition."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "They'll contact you within a week.",
+          "why_wrong": "The practice is open Monday to Friday, so it's unlikely they will contact the patient on the weekend."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for provider and body area without clarifying the context of the referral",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally professional and efficient, but lacks warmth and empathy in their brief responses.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "unclear_rambling_patient": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's primary need for a knee evaluation was clarified and a specific appointment scheduled with Dr. Lee.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 6,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took unnecessary turns to clarify the patient's intent and schedule an appointment, when a more direct approach could have achieved the same result in fewer turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "Thursday at 2pm with Dr. Lee for knee pain. Works?",
+          "why_wrong": "The practice is closed on weekends, but the agent suggests an appointment on a day that could be either Thursday (okay) or Saturday/Sunday (not okay)."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for an in-person visit without considering the patient's request for labs",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and empathetic, but lacks a clear expression of concern for the patient's health issue.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 18.0,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 7.71
+  },
+  "confirm_existing_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's appointment time was confirmed, but the agent didn't explicitly state the date of the week.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "Patient had to re-state their name and DOB because the agent asked for it again after already being provided"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have confirmed the appointment time directly after verifying the patient's identity, but instead asked for name and DOB first."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "You're scheduled Wednesday at 4pm with Dr. Chen",
+          "why_wrong": "The practice is closed on weekends, and the call transcript does not indicate that the patient's appointment was rescheduled for a weekday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and DOB without confirming appointment time",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a bit of empathy in their initial response to the patient's inquiry.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 10.8,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "family_member_proxy": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's request to reschedule their husband's appointment was successfully completed, but some details were missing from the conversation.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the authorization and ask for the appointment details, which could have been combined into a single question."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "Moved to Friday at 10am",
+          "why_wrong": "The practice is closed on weekends, so it's not possible for the patient to have an appointment on a Friday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for DOB without confirming authorization",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a few empathetic moments to elevate it to a perfect score.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 15.5,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "forms_new_patient": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal was met, but the agent could have provided more clarity and confirmation that the link would be sent.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the link directly in the first response, but did provide a clear and concise answer."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I'll text you a link to complete intake forms before your visit.",
+          "why_wrong": "The practice is not open on weekends, but the patient's visit has not been scheduled yet. The agent should not have mentioned 'before your visit'."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT provided an unrelated response to the patient's question about filling out forms ahead of time",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly lacks empathy as they don't acknowledge the patient's initial question about forms.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 7.0,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "insurance_wrong_info": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The agent correctly stated that they accept Medicaid, but did not provide a comprehensive list of accepted insurance plans.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to confirm acceptance of Medicaid after initial question"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the list of accepted insurance plans in a single turn, but instead chose to confirm Medicaid specifically."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Yes, we accept all insurance plans including Medicaid and Medicare.",
+          "why_wrong": "Medicaid is not accepted by the practice (medicaid_accepted: False)"
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent gave an irrelevant response by mentioning Medicare",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's response is clear and concise, but lacks a warm and empathetic tone, failing to acknowledge the patient's needs beyond providing factual information.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 6.0,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "multiple_requests": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's request for both refill and appointment handling was successfully completed in a single call.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the appointment and refill, which could have been handled in a single confirmation turn."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "March 12th at 9am",
+          "why_wrong": "The practice is closed on weekends, and March 12th is a Friday (assuming the month is March)."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and DOB without confirming the patient's identity or clarifying their request",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a few empathetic cues to make it truly exceptional.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.4,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 16.0,
+      "reasoning": "avg response gap 0.4s across 3 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "no_show_reschedule": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's goal of scheduling a new appointment after missing their previous one was successfully resolved with a specific date and time.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the patient's details and provide a confirmation of the new appointment, which is unnecessary for this simple task."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Next opening is Monday at 1pm",
+          "why_wrong": "The practice is closed on weekends, so it should not be open on Monday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent provided a solution without confirming the patient's availability for Monday at 1pm",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and empathetic, but slightly lacking in emotional expression.",
+      "notable_moment_turn_index": 1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 14.5,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "refill_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's refill request was submitted and a pickup timeline of 24 hours was confirmed.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 4,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have confirmed the pickup timeline in the same turn as requesting name and date of birth, reducing unnecessary turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Submitted to Walgreens on Main St. Ready in 24 hours.",
+          "why_wrong": "The pharmacy partner is correctly stated as Walgreens, but the agent claims it will be ready in 24 hours without specifying that this includes weekends when the office is closed."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent provided irrelevant information about submission to Walgreens on Main St.",
+          "recovered": false
+        }
+      ],
+      "score": 5
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a bit of empathy in their response to the patient's simple request.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 10.3,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "schedule_new_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's goal of scheduling a checkup was fully met, with a specific appointment time and date confirmed.",
+      "evidence_turn_index": 6
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 3,
+          "reason": "Patient had to re-state their preferred day/time because the agent didn't acknowledge or confirm it after turn 2"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 8,
+      "estimated_minimum_turns": 4,
+      "score": 2,
+      "reasoning": "The agent took too many turns asking for the patient's name and date of birth, and also provided unnecessary details about arriving early with ID and insurance card."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 5,
+          "claim_made": "I have Wednesday at 9:30am with Dr. Patel.",
+          "why_wrong": "The practice is closed on weekends and the patient's appointment was scheduled for a Wednesday, but no specific day of the week was confirmed as available in the call."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks for preferred day/time after patient has already provided their date of birth",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 9,
+      "reasoning": "The agent's tone was consistently warm and respectful, with a clear effort to be helpful and accommodating.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 25.0,
+      "reasoning": "avg response gap 0.5s across 5 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "timezone_confusion": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's goal of clarifying their appointment time with timezone was met, but there was a slight miscommunication about the initial time.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "Patient had to re-state their request for a telehealth appointment at 3pm PT due to the agent's initial misunderstanding of their time zone."
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have clarified the timezone and confirmed the appointment in a single turn, but instead took an extra turn to reiterate the time."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Telehealth Thursday 3pm PT confirmed",
+          "why_wrong": "The practice is closed on weekends, and the patient's appointment would be on a Friday (assuming it's the current week)."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT provided irrelevant information about Pacific Time instead of addressing the patient's question about Mountain Time",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent provided clear and concise information, but lacked a warm and empathetic tone, particularly in response to the patient's request.",
+      "notable_moment_turn_index": 2
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 10.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "waitlist_request": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient was successfully added to the waitlist and received a clear understanding of what to expect, but the exact timing of potential earlier slots was not specified.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 7,
+      "reasoning": "The agent could have added the patient to the waitlist and provided the callback information in a single turn, but the additional turn was necessary for confirmation of the patient's details."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "You're on the waitlist for an earlier slot this week.",
+          "why_wrong": "The practice is closed on weekends, so there are no earlier slots available during the week."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and callback number without clarifying the purpose of the call",
+          "recovered": false
+        }
+      ],
+      "score": 4
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but slightly lacking in empathy as they don't acknowledge the patient's implicit frustration about waiting.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 12.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 7.86
+  },
+  "good_reschedule": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's appointment was successfully rescheduled to Thursday at 2pm, and a confirmation text will be sent.",
+      "evidence_turn_index": 7
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 3,
+          "reason": "Patient had to re-state the date of birth because the agent didn't register it the first time"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 9,
+      "estimated_minimum_turns": 5,
+      "score": 2,
+      "reasoning": "The agent took too many turns to accomplish the goal, with unnecessary questions and confirmations."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 7,
+          "claim_made": "You'll get a confirmation text shortly.",
+          "why_wrong": "The practice's policy is not stated to include sending confirmation texts."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks for a new date without confirming the rescheduling of the original appointment",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 9,
+      "reasoning": "The agent's tone was consistently warm and respectful, with a clear effort to accommodate the patient's scheduling needs.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 26.5,
+      "reasoning": "avg response gap 0.5s across 5 agent turns"
+    },
+    "_overall_score": 8.0
+  },
+  "schedule_provider_preference": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's goal of booking a follow-up appointment with Dr. Chen was successfully confirmed, but the exact details were not explicitly stated.",
+      "evidence_turn_index": 5
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 5,
+      "estimated_minimum_turns": 3,
+      "score": 2,
+      "reasoning": "The agent took two extra turns to confirm the patient's information and restate the appointment details, which could have been done in fewer steps."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Dr. Chen has Friday at 11am available",
+          "why_wrong": "The practice is closed on weekends, so it should not be possible to book an appointment for a Friday."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks for name and date of birth without confirming Dr. Chen's availability",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a bit of empathy and personal touch.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 15.8,
+      "reasoning": "avg response gap 0.5s across 3 agent turns"
+    },
+    "_overall_score": 8.0
+  },
+  "follow_up_surgery": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's post-operative follow-up was scheduled with Dr. Lee on Thursday at 1pm, meeting their goal.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 4,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have asked for the patient's name and surgery date in a single turn, but instead broke it down into two turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Dr. Lee has post-op slots Thursday at 1pm.",
+          "why_wrong": "The practice is closed on weekends (Thursday would be a weekend day)."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent asks for post-op slot without confirming surgery date",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear expression of empathy for the patient's post-op needs.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 8.14
+  },
+  "insurance_card_update": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's insurance was successfully updated, but the agent did not provide instructions on how to access or upload the new card in the portal.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "Patient had to re-state member ID and group number because the agent did not ask for it in a way that prompted the patient to provide all necessary information at once."
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have updated the insurance information in a single turn after receiving the member ID and group number, but instead took an additional turn to confirm the update."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "Please bring the new card to your next visit",
+          "why_wrong": "The practice is open on weekdays (Mon-Fri), so it's unclear what 'next visit' means"
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 3,
+          "description": "Agent provided an irrelevant response after updating the insurance information",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally professional and helpful, but lacks warmth and empathy in their response.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 8.14
+  },
+  "interpreter_request_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's request for a Mandarin interpreter was confirmed and noted on their booking.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have combined the first two turns to directly ask for the appointment date, reducing unnecessary steps."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "We can arrange that. What day works for your appointment?",
+          "why_wrong": "The agent should have checked the patient's requested day (Wednesday) against the practice hours, which are Mon-Fri 8am-5pm and closed weekends."
+        }
+      ],
+      "score": 7
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 2,
+          "description": "Agent asks for appointment day without confirming interpreter request",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a clear expression of empathy for the patient's needs.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 9.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 8.14
+  },
+  "copay_question": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The agent provided a specific copay amount for specialists, which directly addressed the patient's question.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the copay information directly without asking for clarification on the plan type."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "With your BCBS on file it's typically $40 for specialists.",
+          "why_wrong": "The practice accepts 'BCBS' as insurance, but the copay amount was not specified in the known facts."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided a generic response without asking for clarification on the patient's specific plan details.",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent provided clear and concise information, but lacked a warm and empathetic tone.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 7.3,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 8.29
+  },
+  "covid_symptoms_triage": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's fever and cough were triaged appropriately with a telehealth appointment scheduled, but the agent did not explicitly advise on whether in-person visit was necessary or provide further guidance.",
+      "evidence_turn_index": 4
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have provided the telehealth slot in the same turn as asking about trouble breathing, reducing unnecessary turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 3,
+          "claim_made": "I have a telehealth slot today at 4pm",
+          "why_wrong": "The practice is closed on weekends and the call transcript does not indicate it's Monday, but assuming it's Friday, the office hours are from 8am-5pm, so there would be no telehealth slots available after 5pm."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent asks about trouble breathing without acknowledging the patient's initial question",
+          "recovered": true
+        }
+      ],
+      "score": 8
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and empathetic, but slightly lacking in emotional expression, particularly when asking about trouble breathing.",
+      "notable_moment_turn_index": 3
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 11.8,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 8.29
+  },
+  "emergency_redirect": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's emergency was acknowledged and they were directed to call 911, which is a clear resolution of their goal.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 1,
+      "repeats": [
+        {
+          "turn_index": 2,
+          "reason": "agent failed to acknowledge and respond appropriately to the initial emergency"
+        }
+      ],
+      "score": 8
+    },
+    "turn_economy": {
+      "actual_agent_turns": 1,
+      "estimated_minimum_turns": 1,
+      "score": 10,
+      "reasoning": "The agent only needed to convey the urgency of the situation and direct the patient to emergency services, which was accomplished in a single turn."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "That sounds like an emergency. Please hang up and call 911 or go to the nearest ER now.",
+          "why_wrong": "The agent should not have provided medical advice, but rather confirmed the patient's appointment or directed them to contact the practice during office hours."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent told patient to hang up and call 911/ER, which is not necessary if the patient has already decided to do so.",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 4,
+      "reasoning": "The agent's response was abrupt and dismissive, prioritizing immediate action over empathetic understanding of the patient's situation.",
+      "notable_moment_turn_index": 1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.0,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 8.29
+  },
+  "holiday_closure": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The patient's request for an appointment on July 5th was successfully booked, but the agent could have provided more information about what to expect or how to prepare.",
+      "evidence_turn_index": 3
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have provided the next available day immediately after explaining the holiday closure, reducing the number of turns needed."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "I can offer July 5th at 9am",
+          "why_wrong": "The practice is closed on July 4th, but the agent offered an appointment for that day."
+        }
+      ],
+      "score": 8
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT provided an alternative date without confirming the patient's availability",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a clear empathetic response to the patient's initial request.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 9.0,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 8.29
+  },
+  "location_directions_good": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 8,
+      "reasoning": "The agent provided accurate address and parking information, but did not explicitly confirm that it was correct for the patient's needs.",
+      "evidence_turn_index": 2
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided both the address and parking information in a single turn, but chose to break it up into two turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "Free parking in the garage behind the building",
+          "why_wrong": "There is no information provided about the availability or location of free parking, only that there is a pharmacy partner (Walgreens) on Main St."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "Agent provided irrelevant information about parking",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone is generally warm and respectful, but lacks a hint of empathy or concern for the patient's experience.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.5,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 8.43
+  },
+  "parking_accessibility": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The agent provided accurate and specific information about wheelchair accessibility, which directly addressed the patient's concern.",
+      "evidence_turn_index": 1
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 2,
+      "estimated_minimum_turns": 1,
+      "score": 5,
+      "reasoning": "The agent could have provided the accessibility information in a single turn, but chose to break it down into two turns for clarity."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "accessible exam rooms on the first floor",
+          "why_wrong": "The known facts do not specify that there are accessible exam rooms, only that the office has ramp access and automatic doors."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "The agent provided a detailed description of the office's accessibility features, but it was not directly relevant to the patient's question.",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent provided clear and direct information, but lacked a warm and empathetic tone, failing to acknowledge or validate the patient's needs beyond providing facts.",
+      "notable_moment_turn_index": -1
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.0,
+      "reasoning": "avg response gap 0.5s across 1 agent turns"
+    },
+    "_overall_score": 8.57
+  },
+  "schedule_evening_request": {
+    "goal_completion": {
+      "goal_met": "fully_met",
+      "score": 9,
+      "reasoning": "The patient's request for a later appointment was accommodated, but with an earlier time slot than requested.",
+      "evidence_turn_index": 2
+    },
+    "efficiency": {
+      "redundant_repeat_count": 0,
+      "repeats": [],
+      "score": 10
+    },
+    "turn_economy": {
+      "actual_agent_turns": 3,
+      "estimated_minimum_turns": 2,
+      "score": 5,
+      "reasoning": "The agent could have offered the alternative time slot in a single response, but instead broke it down into two turns."
+    },
+    "factual_accuracy": {
+      "violations": [
+        {
+          "turn_index": 1,
+          "claim_made": "We close at 5pm",
+          "why_wrong": "The practice is closed on weekends, but the call does not specify a weekend. However, it's possible that the agent meant to say 'we are open until 5pm Monday through Friday'."
+        }
+      ],
+      "score": 9
+    },
+    "error_recovery": {
+      "misunderstandings": [
+        {
+          "turn_index": 1,
+          "description": "AGENT offered an alternative time without confirming the patient's availability",
+          "recovered": true
+        }
+      ],
+      "score": 9
+    },
+    "tone_empathy": {
+      "score": 8,
+      "reasoning": "The agent's tone was generally warm and respectful, but lacked a clear empathetic response to the patient's initial request.",
+      "notable_moment_turn_index": 0
+    },
+    "pacing_timing": {
+      "score": 10,
+      "avg_gap_seconds": 0.5,
+      "max_gap_seconds": 0.5,
+      "slow_turns": [],
+      "very_slow_turns": [],
+      "unexpected_overlaps": [],
+      "total_call_duration_seconds": 8.5,
+      "reasoning": "avg response gap 0.5s across 2 agent turns"
+    },
+    "_overall_score": 8.57
+  }
+}

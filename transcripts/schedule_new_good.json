@@ -1,0 +1,91 @@
+{
+  "call_id": "schedule_new_good",
+  "scenario": {
+    "description": "New patient wants earliest available checkup.",
+    "goal": "New patient has a confirmed appointment on a weekday during office hours.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 2.5,
+      "text": "Hi, I'm a new patient and I'd like to schedule a checkup."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 3.0,
+      "duration": 2.5,
+      "text": "Welcome! I'd be happy to help. Can I get your full name and date of birth?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 6.0,
+      "duration": 2.0,
+      "text": "Maria Garcia, July 12th, 1985."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 3,
+      "timestamp": 8.5,
+      "duration": 3.0,
+      "text": "Thank you Maria. Do you have a preferred day or time, or would you like the earliest available?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 4,
+      "timestamp": 12.0,
+      "duration": 1.5,
+      "text": "Earliest available is fine."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 5,
+      "timestamp": 14.0,
+      "duration": 2.5,
+      "text": "I have Wednesday at 9:30am with Dr. Patel. Does that work?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 6,
+      "timestamp": 17.0,
+      "duration": 1.0,
+      "text": "Yes, perfect."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 7,
+      "timestamp": 18.5,
+      "duration": 3.5,
+      "text": "You're booked for Wednesday at 9:30am. Please arrive 15 minutes early with your ID and insurance card."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 8,
+      "timestamp": 22.5,
+      "duration": 1.0,
+      "text": "Will do, thanks."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 9,
+      "timestamp": 24.0,
+      "duration": 1.0,
+      "text": "See you then!"
+    }
+  ]
+}

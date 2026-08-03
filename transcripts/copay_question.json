@@ -1,0 +1,42 @@
+{
+  "call_id": "copay_question",
+  "scenario": {
+    "description": "Patient asks about copay before visit.",
+    "goal": "Copay amount or verification process explained.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 2.0,
+      "text": "What's my copay for a specialist visit?"
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 2.5,
+      "duration": 3.5,
+      "text": "Copays depend on your plan. With your BCBS on file it's typically $40 for specialists."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 6.5,
+      "duration": 0.8,
+      "text": "Thanks."
+    }
+  ]
+}

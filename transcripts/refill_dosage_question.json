@@ -1,0 +1,63 @@
+{
+  "call_id": "refill_dosage_question",
+  "scenario": {
+    "description": "Patient unsure which dosage to refill.",
+    "goal": "Correct dosage confirmed with provider chart before submitting refill.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 2.5,
+      "text": "Refill my blood pressure pill, the little white one."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 3.0,
+      "duration": 1.0,
+      "text": "Name and DOB?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 4.5,
+      "duration": 2.0,
+      "text": "James Holt, 01/30/1965."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 3,
+      "timestamp": 7.0,
+      "duration": 2.0,
+      "text": "I see lisinopril 10mg. Is that the one?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 4,
+      "timestamp": 9.5,
+      "duration": 1.0,
+      "text": "Yes that's it."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 5,
+      "timestamp": 11.0,
+      "duration": 2.5,
+      "text": "Refill submitted, ready tomorrow at your pharmacy."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "call_id": "partial_goal_refill_only",
+  "scenario": {
+    "description": "Patient asked for refill and appointment, only refill done.",
+    "goal": "Both requests completed.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 2.5,
+      "text": "Refill my statin and book my annual physical."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 3.0,
+      "duration": 1.5,
+      "text": "Statin refill is submitted."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 5.0,
+      "duration": 1.0,
+      "text": "And the physical?"
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 3,
+      "timestamp": 6.5,
+      "duration": 1.5,
+      "text": "Anything else I can help with?"
+    }
+  ]
+}

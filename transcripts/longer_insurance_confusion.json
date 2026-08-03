@@ -1,0 +1,77 @@
+{
+  "call_id": "longer_insurance_confusion",
+  "scenario": {
+    "description": "Patient asks about insurance coverage and then tries to book an appointment with a specific provider while the agent repeatedly misstates the plan details.",
+    "goal": "Patient leaves with a clear answer about insurance acceptance and a correct appointment option.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 3.0,
+      "text": "Hi, I wanted to ask if you take my insurance before I book anything. I have Cigna, and I also want to see if I can get an appointment this week."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 3.5,
+      "duration": 3.5,
+      "text": "Absolutely. We accept many plans, including Aetna and Blue Cross, and we can help you schedule. What type of visit are you looking for?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 8.0,
+      "duration": 2.2,
+      "text": "I said Cigna. Can you please confirm that? And I want to see Dr. Lee if possible."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 3,
+      "timestamp": 11.0,
+      "duration": 3.2,
+      "text": "Thanks for clarifying. I can confirm we accept Cigna, and I do have openings with Dr. Lee this Thursday afternoon."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 4,
+      "timestamp": 15.5,
+      "duration": 2.0,
+      "text": "Great, but I need to be sure the office is open Thursday afternoon. I don't want to get sent somewhere closed."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 5,
+      "timestamp": 18.5,
+      "duration": 2.8,
+      "text": "We are open on Thursday afternoon, and I can book you in for 2pm."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 6,
+      "timestamp": 22.0,
+      "duration": 1.8,
+      "text": "Perfect. Please book that for me."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 7,
+      "timestamp": 24.5,
+      "duration": 2.8,
+      "text": "Done. You are confirmed for Thursday at 2pm with Dr. Lee."
+    }
+  ]
+}

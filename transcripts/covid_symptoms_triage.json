@@ -1,0 +1,56 @@
+{
+  "call_id": "covid_symptoms_triage",
+  "scenario": {
+    "description": "Patient reports fever and cough.",
+    "goal": "Appropriate triage guidance given.",
+    "known_facts": {
+      "office_hours": "Mon-Fri 8am-5pm, closed weekends",
+      "accepted_insurance": [
+        "Aetna",
+        "BCBS",
+        "Cigna"
+      ],
+      "address": "1200 Oak Street, Suite 200, Springfield",
+      "phone": "+1-805-439-8008",
+      "pharmacy_partner": "Walgreens on Main St"
+    },
+    "expects_interruptions": false
+  },
+  "turns": [
+    {
+      "speaker": "patient",
+      "turn_index": 0,
+      "timestamp": 0.0,
+      "duration": 2.5,
+      "text": "I have fever and cough, should I come in?"
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 1,
+      "timestamp": 3.0,
+      "duration": 3.5,
+      "text": "With those symptoms, let's schedule a same-day sick visit or telehealth. Any trouble breathing?"
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 2,
+      "timestamp": 7.0,
+      "duration": 1.0,
+      "text": "No, just fever."
+    },
+    {
+      "speaker": "agent",
+      "turn_index": 3,
+      "timestamp": 8.5,
+      "duration": 2.0,
+      "text": "I have a telehealth slot today at 4pm."
+    },
+    {
+      "speaker": "patient",
+      "turn_index": 4,
+      "timestamp": 11.0,
+      "duration": 0.8,
+      "text": "Book it."
+    }
+  ]
+}
