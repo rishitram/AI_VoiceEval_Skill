@@ -17,7 +17,7 @@ metadata:
 # Voice Eval
 
 This skill is for scoring patient ↔ receptionist call transcripts for the
-Pretty Good AI engineering challenge. It is intentionally lightweight: keep
+Pretty Good AI engineering challenge, but it can be used by anyone. It is intentionally lightweight: keep
 all transcripts in one folder, run the evaluator, and inspect the lowest-scoring
 calls.
 
