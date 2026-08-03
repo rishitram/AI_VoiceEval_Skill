@@ -1,6 +1,6 @@
 # Voice Eval Skill
 
-This repo is a sharp, reusable evaluation skill for voice-agent systems. It is built to help you test whether a bot can actually hold a real conversation, follow the task, recover from mistakes, and avoid obvious quality failures.
+This repo is a reusable evaluation skill for voice-agent systems. It is built to help you test whether a bot can actually hold a real conversation, follow the task, recover from mistakes, and avoid obvious quality failures.
 
 The value here is simple: instead of relying on gut feel or scattered notes, you get a structured way to score calls, rank weak spots, and turn them into actionable bug reports. I tested this skill with OpenClaw using the llama3.1:8b model as the judge, and used it as a repeatable harness-friendly workflow: feed it transcripts, run the evaluation, inspect the weakest calls, and build a clear record of what needs to improve.
 
