@@ -82,3 +82,30 @@ def score_pacing(transcript: Transcript) -> dict:
         "total_call_duration_seconds": transcript.total_duration(),
         "reasoning": "; ".join(reasoning_parts),
     }
+LONG_GAP_THRESHOLD = 5.0
+
+def count_long_gaps(transcript: Transcript) -> dict:
+    gaps = compute_gaps(transcript)
+
+    if not gaps:
+        return {
+            "count": 0,
+            "threshold_seconds": LONG_GAP_THRESHOLD,
+            "long_gaps": [],
+            "reasoning": "No agent response gaps available."
+        }
+
+    long_gaps = [
+        g for g in gaps
+        if g["gap_seconds"] >= LONG_GAP_THRESHOLD
+    ]
+
+    return {
+        "count": len(long_gaps),
+        "threshold_seconds": LONG_GAP_THRESHOLD,
+        "long_gaps": long_gaps,
+        "reasoning": (
+            f"{len(long_gaps)} response gap(s) exceeded "
+            f"{LONG_GAP_THRESHOLD:.1f}s."
+        )
+    }
