@@ -4,7 +4,7 @@ This repo is a reusable evaluation skill for voice-agent systems. It is built to
 
 The value here is simple: instead of relying on gut feel or scattered notes, you get a structured way to score calls, rank weak spots, and turn them into actionable bug reports. I tested this skill with OpenClaw using the llama3.1:8b model as the judge, and used it as a repeatable harness-friendly workflow: feed it transcripts, run the evaluation, inspect the weakest calls, and build a clear record of what needs to improve.
 
-## Why this skill stands out
+## Why this skill?
 
 A good voice agent is not just one that sounds polished. It has to be accurate, efficient, resilient, and easy to reason about when things go wrong. This repo gives you a practical system for evaluating that.
 
@@ -43,6 +43,6 @@ That command reads every transcript in [transcripts](transcripts), scores the ca
 
 Open [results.json](results.json) and start with the lowest-scoring calls. Those are the best candidates for deeper inspection and bug reporting.
 
-## Why this repo is worth keeping
+## Significance
 
 This is more than a one-off artifact. It is a reusable evaluation package for testing voice-agent behavior end to end: from transcript collection and scoring to bug finding and improvement. That is what makes it genuinely useful.
