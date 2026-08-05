@@ -4,14 +4,14 @@ This repo is a reusable evaluation harness for voice-agent systems. The idea is 
 
 It is designed around a simple flow:
 
-1. load transcripts that describe a caller, a goal, and the full exchange
+1. load transcripts that describe a caller, a goal, and the full exchange between caller and a voice agent
 2. run a set of metrics against each transcript
 3. combine those metric results into a single overall score
 4. sort the calls so the worst-performing interactions are easy to inspect
 
 ## How the grading works
 
-The evaluation is a blend of model-driven judgment and deterministic timing checks.
+The evaluation is a mix of model-driven judgment and deterministic timing checks.
 
 - `scripts/judge.py` is the core grader. For each transcript it runs one or more metric prompts, parses the JSON response from the local model, and then combines the results.
 - Each metric is scored on a 0-10 scale.
