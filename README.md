@@ -22,6 +22,16 @@ The evaluation is a mix of model-driven judgment and deterministic timing checks
   - `BORDERLINE` for weighted score between 5 and 7
   - `PASS` for weighted score 7 and above
 
+The main metrics are:
+
+- `goal_completion`: did the call actually deliver the requested outcome, not just sound polite?
+- `factual_accuracy`: did the agent stick to known facts and avoid contradictions or bad policy claims?
+- `error_recovery`: did the agent recover cleanly when it misunderstood or went off track?
+- `efficiency`: did the patient have to repeat themselves because the agent missed or ignored information?
+- `turn_economy`: was the conversation concise, or did the agent use too many unnecessary turns?
+- `tone_empathy`: was the agent respectful and appropriately warm for a medical office context?
+- `pacing_timing`: a deterministic check of response latency, slow gaps, and agent/patient overlap based on timestamps.
+
 That means this skill does more than just count errors: it looks at whether the call achieved the goal, whether the agent stayed factual, how well it recovered from mistakes, and whether it kept the conversation moving.
 
 ## What each file does
