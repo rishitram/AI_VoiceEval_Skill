@@ -1,35 +1,94 @@
 # Voice Eval Skill
 
-This repo is a reusable evaluation skill for voice-agent systems. It is built to help you test whether a bot can actually hold a real conversation, follow the task, recover from mistakes, and avoid obvious quality failures.
+This repo is a reusable evaluation harness for voice-agent systems. The idea is to move transcript review away from impressions and into a consistent, repeatable scoring process.
 
-The value here is simple: instead of relying on gut feel or scattered notes, you get a structured way to score calls, rank weak spots, and turn them into actionable bug reports. I tested this skill with OpenClaw using the llama3.1:8b model as the judge, and used it as a repeatable harness-friendly workflow: feed it transcripts, run the evaluation, inspect the weakest calls, and build a clear record of what needs to improve.
+It is designed around a simple flow:
 
-## Why this skill?
+1. load transcripts that describe a caller, a goal, and the full exchange
+2. run a set of metrics against each transcript
+3. combine those metric results into a single overall score
+4. sort the calls so the worst-performing interactions are easy to inspect
 
-A good voice agent is not just one that sounds polished. It has to be accurate, efficient, resilient, and easy to reason about when things go wrong. This repo gives you a practical system for evaluating that.
+## How the grading works
 
-It helps you:
+The evaluation is a blend of model-driven judgment and deterministic timing checks.
 
-- score conversations against a clear rubric
-- catch issues like hallucinated information, weak recovery, bad pacing, and wasted turns
-- surface the weakest calls first so your review time is spent where it matters most
-- turn transcript analysis into a repeatable bug-reporting workflow
+- `scripts/judge.py` is the core grader. For each transcript it runs one or more metric prompts, parses the JSON response from the local model, and then combines the results.
+- Each metric is scored on a 0-10 scale.
+- The final score is a weighted average of the selected metrics.
+- If any metric reports a `critical_failure`, the call is marked as a hard fail.
+- The overall recommendation is:
+  - `FAIL` for critical failures or weighted score under 5
+  - `BORDERLINE` for weighted score between 5 and 7
+  - `PASS` for weighted score 7 and above
 
-## What is in this repo
+That means this skill does more than just count errors: it looks at whether the call achieved the goal, whether the agent stayed factual, how well it recovered from mistakes, and whether it kept the conversation moving.
 
-- [transcripts](transcripts): a corpus of call transcripts ready for evaluation
-- [scripts](scripts): the evaluator, scoring logic, prompts, and schema that power the workflow
-- [results.json](results.json): the ranked output from the latest evaluation run
-- [references](references): notes on transcript format, metrics, and bug-report structure
+## What each file does
 
-## Why this repo is useful
+- `scripts/run_eval.py`
+  - entry point for the evaluation workflow
+  - loads transcript JSON files from a directory or a single file
+  - calls `judge.evaluate_transcript` for each transcript
+  - prints a summary table of metric scores and overall score
+  - optionally saves the full detailed results to `results.json`
 
-- It gives you a repeatable evaluation loop instead of one-off impressions.
-- It helps you focus on the most important problems quickly.
-- It turns transcript review into something actionable: score, inspect, report, and improve.
-- It is reusable. The same skill can be run against new batches of calls over and over as your system evolves.
+- `scripts/judge.py`
+  - orchestrates metric evaluation and scoring
+  - sends prompt text to a local Ollama model at `http://localhost:11434/api/chat`
+  - parses the model output as JSON and normalizes the result
+  - computes the weighted overall score via `METRIC_WEIGHTS`
+  - detects critical failures and collects issue details across metrics
+  - returns a structured result object with scores, issues, and recommendation
 
-## How to run the evaluation
+- `scripts/prompts.py`
+  - defines the actual prompt templates used by the judge
+  - every prompt asks the model to return a strict JSON object only
+  - includes prompt functions for goals like:
+    - `goal_completion`
+    - `factual_accuracy`
+    - `error_recovery`
+    - `efficiency` and `turn_economy`
+    - `tone_empathy`
+  - these templates shape what the model looks for in the transcript
+
+- `scripts/schema.py`
+  - defines the transcript data model using `dataclasses`
+  - `Transcript.from_dict` builds a typed object from JSON
+  - `Transcript.as_text` formats the transcript for prompt injection
+  - `Scenario` captures the caller's goal, known facts, and whether interruptions are expected
+
+- `scripts/timing.py`
+  - computes deterministic pacing and latency metrics from timestamps
+  - measures agent response gaps, slow turns, and overlaps
+  - returns a pacing score and list of problematic gaps
+  - this is useful when you want a concrete score for responsiveness, not just language judgment
+
+- `scripts/validate_transcripts.py`
+  - checks transcript files against the expected schema
+  - verifies top-level fields, turn structure, speaker labels, and consistent turn indices
+  - helps catch malformed transcripts before evaluation
+
+- `scripts/generate_transcripts.py`
+  - builds the sample transcript corpus under `transcripts/`
+  - contains helper functions for writing consistent call records
+  - gives you examples of what the evaluation format looks like in practice
+
+## What the repo contains
+
+- `transcripts/`
+  - ready-to-evaluate call transcripts in JSON format
+  - each file has `call_id`, `scenario`, and `turns`
+  - `scenario` includes a description, concrete goal, known facts, and an interruption flag
+
+- `results.json`
+  - the output from the latest run if you save it with `--out`
+  - contains detailed metric results, issue lists, and overall recommendations
+
+- `references/`
+  - documentation and reference notes for transcript formatting, metrics, and bug reporting
+
+## Running the evaluation
 
 From the repository root:
 
@@ -37,12 +96,14 @@ From the repository root:
 python scripts/run_eval.py transcripts --out results.json --sort overall
 ```
 
-That command reads every transcript in [transcripts](transcripts), scores the calls, and writes the ranked results to [results.json](results.json).
+This reads everything under `transcripts/`, evaluates each call, and writes the full results to `results.json`.
 
-## How to read the results
+## Reading the output
 
-Open [results.json](results.json) and start with the lowest-scoring calls. Those are the best candidates for deeper inspection and bug reporting.
+- The summary table shows each call's metric scores and overall score.
+- Lower overall scores are the most important ones to review first.
+- The saved JSON includes the individual metric responses, any issues found, and whether the call passed, failed, or is borderline.
 
-## Significance
+## Why this is useful
 
-This is more than a one-off artifact. It is a reusable evaluation package for testing voice-agent behavior end to end: from transcript collection and scoring to bug finding and improvement. That is what makes it genuinely useful.
+This repo turns conversational evaluation into a repeatable process. Instead of guessing which calls were bad, you get a clear grading system that identifies failures, surfaces weak spots, and makes it easier to improve the voice agent over time.
