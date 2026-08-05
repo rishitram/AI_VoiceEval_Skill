@@ -93,10 +93,10 @@ That means this skill does more than just count errors: it looks at whether the 
 
 - `results.json`
   - the output from the latest run if you save it with `--out`
-  - contains detailed metric results, issue lists, and overall recommendations
+  - currently holds actual graded results for transcripts, issue lists, and overall recommendations
 
 - `references/`
-  - documentation and reference notes for transcript formatting, metrics, and bug reporting
+  - documentation and reference notes for transcript formatting and metrics
 
 ## Running the evaluation
 
